@@ -25,7 +25,9 @@ ai = apiai.ApiAI(API_AI_CLIENT_ACCESS_TOKEN)
 
 @app.route('/facebook', methods=['GET'])
 def verify():
-    verify_token = request.args['hub.verify_token']
+    verify_token = None
+    if 'hub.verify_token' in request.args:
+      verify_token = request.args['hub.verify_token']
     if FB_VERIFICATION_TOKEN == verify_token:
         return request.args['hub.challenge']
     return "Unknown"

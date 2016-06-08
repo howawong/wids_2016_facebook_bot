@@ -1,0 +1,7 @@
+flask
+mock
+gevent
+gunicorn
+requests
+apiai
+lxml
